@@ -14,8 +14,16 @@ def getweek(url):
     day = int(url[-2] + url[-1])
     week = []
     for i in range(7):
-        # only May to Sep
-        if month == 5 and day+i > 31:
+        if month == 1 and day+i > 31:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
+        # Feb. need to fix every year
+        elif month == 2 and day+i > 28:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
+        elif month == 3 and day+i > 31:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
+        elif month == 4 and day+i > 30:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
+        elif month == 5 and day+i > 31:
             week.append(str(month+1).zfill(2) + '/' + str(day+i-31).zfill(2))
         elif month == 6 and day+i > 30:
             week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
@@ -23,6 +31,14 @@ def getweek(url):
             week.append(str(month+1).zfill(2) + '/' + str(day+i-31).zfill(2))
         elif month == 8 and day+i > 31:
             week.append(str(month+1).zfill(2) + '/' + str(day+i-31).zfill(2))
+        elif month == 9 and day+i > 30:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
+        elif month == 10 and day+i > 31:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
+        elif month == 11 and day+i > 30:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
+        elif month == 12 and day+i > 31:
+            week.append(str(month+1).zfill(2) + '/' + str(day+i-30).zfill(2))
         else:
             week.append(str(month).zfill(2) + '/' + str(day+i).zfill(2))
     return week
@@ -47,18 +63,19 @@ def gethref(dom):
             SS = BeautifulSoup(x, features="html.parser")
             theater = SS.find('div', class_='theater-box')
             if theater != []:
-                getmovie(SS, day)
+                getmovie(theater, day)
             else:
                 break
+        break
 
 
-def getmovie(soup, day):
+def getmovie(theater, day):
     #print(f"title = {soup.find('title').text}")
-    theater = soup.find_all('div', class_='theater-box')
+    #theater = soup.find_all('div', class_='theater-box')
     for T in theater:
         #print(f"theater = {T.find('a').text}")
         for time, ting in zip(T.find_all('h6'), T.find_all('span', "float-left info")):
-            print(f"title = {soup.find('title').text}")
+            print(f"title = {T.find('title').text}")
             print(f"date = {day}")
             print(f"theater = {T.find('a').text}")
             print(f"time = {time.text}")
