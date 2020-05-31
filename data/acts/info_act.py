@@ -30,13 +30,12 @@ def gethref(dom):
 
 
 def getinfo(info):
-    print(f"title = {info.find('h2').text}")
-    print(f"EN_title = {info.find('h6').text}")
     attributes = info.find_all('p')
-    print(f"intro = {attributes[0].text}")
-    print(f"{attributes[1].text}")
-    print(f"{attributes[2].text}")
-    print("-------------------------------------------------------------------------\n")
+    actors = attributes[1].text.split(",")
+    for A in actors:
+        print(f"title = {info.find('h2').text}")
+        print(A)
+    print("-------------------------------------------------------------------------")
 
 
 def main():
