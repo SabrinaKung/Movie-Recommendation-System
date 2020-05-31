@@ -21,7 +21,7 @@ fi
 #   time = 11:10
 #   ting = 2廳 116席
 # ->
-#   1/2的魔法, 05/23, 國賓大戲院, 台北市成都路88號, 11:10, 2廳
+#   1/2的魔法, 05/23, 國賓大戲院, 台北市成都路88號, 11:10
 
 # generate a temp txt
 cp $TXT $TMP
@@ -29,13 +29,13 @@ cp $TXT $TMP
 # remove unnessary data
 `sed -i 's/國賓電影網站入口 - 國賓影城 - 國賓大戲院 - 電影 - 現正熱映 - //g' $TMP`
 `sed -i 's/[0-9]*席//g' $TMP`
+`sed -i '/ting/ d' $TMP`
 
-# title/date/theater/time/ting
+# title/date/theater/time
 `sed -i '1 s/title = //g' $TMP`
 `sed -i 's/date = //g' $TMP`
 `sed -i 's/theater = //g' $TMP`
 `sed -i 's/time = //g' $TMP`
-`sed -i 's/ting = //g' $TMP`
 
 # replace newline
 `sed -i ':a;N;$!ba;s/\n/,/g' $TMP`
@@ -63,6 +63,6 @@ cp $TXT $TMP
 
 # generate csv file and add attribute name to first line
 `touch $CSV`
-`echo "title,date,theater,location,time,ting" > $CSV`
+`echo "title,date,theater,location,time" > $CSV`
 `cat $TMP >> $CSV`
 rm $TMP
