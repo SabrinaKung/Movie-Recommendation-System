@@ -1,4 +1,3 @@
-name,SSN,sex
 LilyFranky,,
 丹尼爾奧圖,,
 亞歷珊卓瑪麗亞羅納,,
