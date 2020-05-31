@@ -43,15 +43,21 @@ cp $INF $TMP
 `sed -i "" 's/\.//g' $TMP`
 
 # fix
+<<<<<<< HEAD
 `sed -i "" ':a;N;$!ba; s/\n/g' $TMP`
 `sed -i "" 's/,\+/,/g' $TMP`
 `sed -i "" 's/,/,,,\n/g' $TMP`
 `sed -i "" '$ d' $TMP`
+=======
+`sed -i ':a;N;$!ba; s/\n//g' $TMP`
+`sed -i 's/,\+/,/g' $TMP`
+`sed -i 's/,/,,\n/g' $TMP`
+`sed -i '$ d' $TMP`
+>>>>>>> dummy-kao/master
 
 # generate csv file and add attribute name to first line
 `touch $ACT`
-`echo "name,SSN,sex,birth" > $ACT`
-`cat $TMP >> $ACT`
+`echo "name,SSN,sex" > $ACT`
 # sort and uniq
-#`sort $TMP | uniq >> $ACT`
+`sort $TMP | uniq >> $ACT`
 rm $TMP
