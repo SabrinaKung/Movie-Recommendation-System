@@ -33,20 +33,20 @@ fi
 cp $INF $TMP
 
 # remove unnessarys
-`sed -i 's/\s//g' $TMP`
-`sed -i '/title/ d' $TMP`
-`sed -i '/EN_title/ d' $TMP`
-`sed -i '/intro/ d' $TMP`
-`sed -i 's/影片類型.*/,/g' $TMP`
-`sed -i 's/主要演員：//g' $TMP`
-`sed -i '/---/ d' $TMP`
-`sed -i 's/\.//g' $TMP`
+`sed -i "" 's/\s//g' $TMP`
+`sed -i "" '/title/ d' $TMP`
+`sed -i "" '/EN_title/ d' $TMP`
+`sed -i "" '/intro/ d' $TMP`
+`sed -i "" 's/影片類型.*/,/g' $TMP`
+`sed -i "" 's/主要演員：//g' $TMP`
+`sed -i "" '/---/ d' $TMP`
+`sed -i "" 's/\.//g' $TMP`
 
 # fix
-`sed -i ':a;N;$!ba; s/\n//g' $TMP`
-`sed -i 's/,\+/,/g' $TMP`
-`sed -i 's/,/,,,\n/g' $TMP`
-`sed -i '$ d' $TMP`
+`sed -i "" ':a;N;$!ba; s/\n/g' $TMP`
+`sed -i "" 's/,\+/,/g' $TMP`
+`sed -i "" 's/,/,,,\n/g' $TMP`
+`sed -i "" '$ d' $TMP`
 
 # generate csv file and add attribute name to first line
 `touch $ACT`
