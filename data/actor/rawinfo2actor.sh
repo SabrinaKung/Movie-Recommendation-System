@@ -44,14 +44,18 @@ cp $INF $TMP
 
 # fix
 <<<<<<< HEAD
+<<<<<<< HEAD
 `sed -i "" ':a;N;$!ba; s/\n/g' $TMP`
 `sed -i "" 's/,\+/,/g' $TMP`
 `sed -i "" 's/,/,,,\n/g' $TMP`
 `sed -i "" '$ d' $TMP`
 =======
 `sed -i ':a;N;$!ba; s/\n//g' $TMP`
+=======
+`sed -i -e ':a' -e 'N' -e '$!ba' -e 's/\n//g' $TMP`
+>>>>>>> sabrina/master
 `sed -i 's/,\+/,/g' $TMP`
-`sed -i 's/,/,,\n/g' $TMP`
+`sed -i 's/,/,,\'$'\n/g' $TMP`
 `sed -i '$ d' $TMP`
 >>>>>>> dummy-kao/master
 
