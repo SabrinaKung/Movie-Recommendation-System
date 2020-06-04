@@ -27,17 +27,17 @@ fi
 cp $INF $TMP
 
 # remove unnessarys
-`sed -i '/EN_title/ d' $TMP`
-`sed -i '/intro/ d' $TMP`
-`sed -i '/主要演員/ d' $TMP`
-`sed -i '/---/ d' $TMP`
-`sed -i 's/\.//g' $TMP`
+`sed -i '' '/EN_title/ d' $TMP`
+`sed -i '' '/intro/ d' $TMP`
+`sed -i '' '/主要演員/ d' $TMP`
+`sed -i '' '/---/ d' $TMP`
+`sed -i '' 's/\.//g' $TMP`
 
 # fix
-`sed -i '1 s/title = //' $TMP`
-`sed -i -e ':a' -e 'N' -e '$!ba' -e 's/\n//g' $TMP`
-`sed -i 's/title = /\'$'\n/g' $TMP`
-`sed -i 's/影片類型：/,/g' $TMP`
+`sed -i '' '1 s/title = //' $TMP`
+`sed -i '' -e ':a' -e 'N' -e '$!ba' -e 's/\n//g' $TMP`
+`sed -i '' 's/title = /\'$'\n/g' $TMP`
+`sed -i '' 's/影片類型：/,/g' $TMP`
 
 # generate csv file and add attribute name to first line
 `touch $TYP`
