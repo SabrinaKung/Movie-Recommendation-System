@@ -35,8 +35,8 @@ cp $INF $TMP
 
 # fix
 `sed -i '1 s/title = //' $TMP`
-`sed -i ':a;N;$!ba; s/\n//g' $TMP`
-`sed -i 's/title = /\n/g' $TMP`
+`sed -i -e ':a' -e 'N' -e '$!ba' -e 's/\n//g' $TMP`
+`sed -i 's/title = /\'$'\n/g' $TMP`
 `sed -i 's/影片類型：/,/g' $TMP`
 
 # generate csv file and add attribute name to first line
