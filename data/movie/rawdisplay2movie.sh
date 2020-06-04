@@ -39,10 +39,10 @@ cp $TXT $TMP
 `sed -i 's/ting = /,/g' $TMP`
 
 # remove newline
-`sed -i ':a;N;$!ba;s/\n//g' $TMP`
+`sed -i -e ':a' -e 'N' -e '$!ba' -e 's/\n//g' $TMP`
 
 # fix
-`sed -i 's/title = /\n/g' $TMP`
+`sed -i 's/title = /\'$'\n/g' $TMP`
 `sed -i 's/\s//g' $TMP`
 
 # add location after theater(fixed theater-location pair)
