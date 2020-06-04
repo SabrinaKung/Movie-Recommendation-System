@@ -43,9 +43,9 @@ cp $INF $TMP
 `sed -i 's/\.//g' $TMP`
 
 # fix
-`sed -i ':a;N;$!ba; s/\n//g' $TMP`
+`sed -i -e ':a' -e 'N' -e '$!ba' -e 's/\n//g' $TMP`
 `sed -i 's/,\+/,/g' $TMP`
-`sed -i 's/,/,,\n/g' $TMP`
+`sed -i 's/,/,,\'$'\n/g' $TMP`
 `sed -i '$ d' $TMP`
 
 # generate csv file and add attribute name to first line

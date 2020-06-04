@@ -38,11 +38,11 @@ cp $TXT $TMP
 `sed -i 's/time = //g' $TMP`
 
 # replace newline
-`sed -i ':a;N;$!ba;s/\n/,/g' $TMP`
+`sed -i -e ':a' -e 'N' -e '$!ba' -e 's/\n/,/g' $TMP`
 
 # fix
 `sed -i 's/,,//g' $TMP`
-`sed -i 's/title = /\n/g' $TMP`
+`sed -i 's/title = /\'$'\n/g' $TMP`
 `sed -i 's/\s//g' $TMP`
 `sed -i '/---/ d' $TMP`
 
