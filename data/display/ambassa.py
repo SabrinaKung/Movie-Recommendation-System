@@ -61,21 +61,20 @@ def gethref(dom):
             response = rq.get(url+day)
             x = response.text
             SS = BeautifulSoup(x, features="html.parser")
-            theater = SS.find('div', class_='theater-box')
+            theater = SS.find_all('div', class_='theater-box')
             if theater != []:
-                getmovie(theater, day)
+                getmovie(SS, theater, day)
             else:
                 break
-        break
 
 
-def getmovie(theater, day):
+def getmovie(SS, theater, day):
     #print(f"title = {soup.find('title').text}")
     #theater = soup.find_all('div', class_='theater-box')
     for T in theater:
         #print(f"theater = {T.find('a').text}")
         for time, ting in zip(T.find_all('h6'), T.find_all('span', "float-left info")):
-            print(f"title = {T.find('title').text}")
+            print(f"title = {SS.find('title').text}")
             print(f"date = {day}")
             print(f"theater = {T.find('a').text}")
             print(f"time = {time.text}")
