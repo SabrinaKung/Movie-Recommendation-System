@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # parameters
-PWD=`pwd`
-INF=$PWD/$1
-TMP=$PWD/$1.tmp
-TYP=$PWD/$2
+INF=$1
+TMP=$1.tmp
+TYP=$2
 
 # detect parameters
 if [ -z "$2" ]; then
@@ -42,5 +41,5 @@ cp $INF $TMP
 # generate csv file and add attribute name to first line
 `touch $TYP`
 `echo "name,type" > $TYP`
-`cat $TMP >> $TYP`
+`sort $TMP | uniq >> $TYP`
 rm $TMP

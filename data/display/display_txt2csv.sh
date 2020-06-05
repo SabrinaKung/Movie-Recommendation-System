@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # parameters
-PWD=`pwd`
-TXT=$PWD/$1
-TMP=$PWD/$1.tmp
-CSV=$PWD/$2
+TXT=$1
+TMP=$1.tmp
+CSV=$2
 
 # detect parameters
 if [ -z "$2" ]; then
@@ -64,5 +63,5 @@ cp $TXT $TMP
 # generate csv file and add attribute name to first line
 `touch $CSV`
 `echo "title,date,theater,location,time" > $CSV`
-`cat $TMP >> $CSV`
+`sort $TMP | uniq >> $CSV`
 rm $TMP
