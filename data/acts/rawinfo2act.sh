@@ -1,10 +1,9 @@
 #!/bin/bash
 
 # parameters
-PWD=`pwd`
-INF=$PWD/$1
-TMP=$PWD/$1.tmp
-ACT=$PWD/$2
+INF=$1
+TMP=$1.tmp
+ACT=$2
 
 # detect parameters
 if [ -z "$2" ]; then
@@ -58,5 +57,5 @@ cp $INF $TMP
 # generate csv file and add attribute name to first line
 `touch $ACT`
 `echo "movie,actor" > $ACT`
-`cat $TMP >> $ACT`
+`sort $TMP | uniq >> $ACT`
 rm $TMP
