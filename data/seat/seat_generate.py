@@ -5,7 +5,7 @@ column = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R
 # 20 row
 row = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
 
-displaydate = "0529-0604"
+displaydate = "0620-0627"
 seat = []
 with open("../display/display_data" + displaydate + ".csv", encoding="utf-8") as display:
     data = display.readlines()
