@@ -94,9 +94,10 @@ echo "==== movie done ===="
 
 # seat
 SEATGENERATE_PY="$SET/seat_generate.py"
-SEAT_DATA="$SET/seat_data.csv"
+SEAT_DATA="$SET/seat_data$DATE.csv"
 
 # (seat_generate.py)> seat.data.csv
+`sed -i "s/displaydate = .*/displaydate = \"$DATE\"/g" $SEATGENERATE_PY`
 `python3 $SEATGENERATE_PY > $SEAT_DATA`
 `chmod 644 $SEAT_DATA`
 echo "==== seat done ===="
@@ -116,6 +117,7 @@ ACTS_MASTER="$ACT/acts_master.csv"
 DISPLAY_MASTER="$DIS/display_master.csv"
 MOVIE_MASTER="$MOV/movie_master.csv"
 TYPE_MASTER="$TYP/type_master.csv"
+SEAT_MASTER="$SET/seat_master.csv"
 
 # actor
 `$MERGE_SH $ACTOR_MASTER $ACTOR_DATA`
@@ -137,3 +139,6 @@ echo "==== movie done ===="
 `$MERGE_SH $TYPE_MASTER $TYPE_DATA`
 echo "==== type done ===="
 
+# seat
+`$MERGE_SH $SEAT_MASTER $SEAT_DATA`
+echo "==== seat done ===="
