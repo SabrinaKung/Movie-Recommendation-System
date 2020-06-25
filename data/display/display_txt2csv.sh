@@ -29,6 +29,7 @@ cp $TXT $TMP
 `sed -i 's/國賓電影網站入口 - 國賓影城 - 國賓大戲院 - 電影 - 現正熱映 - //g' $TMP`
 `sed -i 's/[0-9]*席//g' $TMP`
 `sed -i '/ting/ d' $TMP`
+`sed -i 's/\.//g' $TMP`
 
 # title/date/theater/time
 `sed -i '1 s/title = //g' $TMP`
