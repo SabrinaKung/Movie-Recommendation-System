@@ -62,10 +62,7 @@ def gethref(dom):
             x = response.text
             SS = BeautifulSoup(x, features="html.parser")
             theater = SS.find_all('div', class_='theater-box')
-            if theater != []:
-                getmovie(SS, theater, day)
-            else:
-                break
+            getmovie(SS, theater, day)
 
 
 def getmovie(SS, theater, day):
@@ -80,7 +77,7 @@ def getmovie(SS, theater, day):
             print(f"time = {time.text}")
             print(f"ting = {ting.text}")
             print("")
-    print("-------------------------------------------------------------------------\n")
+    #print("-------------------------------------------------------------------------\n")
 
 
 def main():
