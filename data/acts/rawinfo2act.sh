@@ -54,6 +54,9 @@ cp $INF $TMP
 `sed -i -e ':a' -e 'N' -e '$!ba' -e 's/\n/,/g' $TMP`
 `sed -i 's/,title=/\'$'\n/g' $TMP`
 
+# if there is movie without actors, add NA
+`sed -i 's/,$/&NA/g' $TMP`
+
 # generate csv file and add attribute name to first line
 `touch $ACT`
 `echo "movie,actor" > $ACT`
