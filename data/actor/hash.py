@@ -8,6 +8,7 @@ sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 
 # get current directory
 f = open(os.getcwd()+"/data/actor/names.txt", encoding="utf-8")
+#f = open("names.txt", encoding="utf-8")
 
 print("name,SSN,sex")
 for line in f:

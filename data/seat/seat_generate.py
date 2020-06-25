@@ -1,12 +1,60 @@
 import sys
 
+# 26 col
 column = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+# 20 row
 row = ["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20"]
-theater = ["國賓大戲院","國賓影城@中和環球購物中心","國賓影城@台北長春廣場","國賓影城@台北微風廣場","國賓影城@林口昕境廣場","國賓影城@淡水禮萊廣場","國賓影城@新莊晶冠廣場","國賓影城@八德廣豐新天地","國賓影城@台南國賓廣場","國賓影城@高雄大魯閣草衙道","國賓影城@高雄義大世界","國賓影城@金門昇恆昌金湖廣場"]
 
-print("theater,column,row,booked")
-for T in theater:
+theaters = []
+seat = []
+movies = []
+all_in_web = []
+
+date = "0620-0627"
+
+with open("../type/type_data" + date + ".csv", encoding="utf-8") as types:
+    data = types.readlines()
+    # remove first line
+    data = data[1:]
+    for line in data:
+        line = line.strip()
+        features = line.split(",")
+        movie = features[0]
+        all_in_web.append(movie)
+    types.close()
+
+with open("../display/display_data" + date + ".csv", encoding="utf-8") as display:
+    data = display.readlines()
+    # remove first line
+    data = data[1:]
+    for line in data:
+        line = line.strip()
+        features = line.split(",")
+        movie = features[0]
+        theater = features[2]
+        date = features[1]
+        time = features[4]
+        TT = [movie, theater, date, time]
+        if theater not in theaters:
+            theaters.append(theater)
+        if movie not in movies:
+            movies.append(movie)
+        if TT not in seat:
+            seat.append(TT)
+    display.close()
+
+
+print("movie,theater,date,time,column,row,booked")
+for S in seat:
     for C in column:
         for R in row:
-            print(f"{T},{C},{R},0")
+            print(f"{S[0]},{S[1]},{S[2]},{S[3]},{C},{R},0")
+
+for M in all_in_web:
+    if M not in movies:
+        for T in theaters:
+            for C in column:
+                for R in row:
+                    print(f"{M},{T},NULL,NULL,{C},{R},0")
+
 
