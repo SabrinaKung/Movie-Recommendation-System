@@ -1,89 +1,112 @@
 # 電影院售票系統
 
-One Paragraph of project description goes here
-
-## Getting Started
-
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+這是一個利用國賓影城的電影資料所建立的電影院售票系統。售票網頁會依照用戶選擇的心情來推薦電影類型，並顯示當期電影供用戶選擇，用戶可以自由選擇觀看電影、戲院與日期時間下訂電影。除此之外，用戶還可以在訂票後還輸入用戶資訊，進行退票動作。
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Postgres SQL
 
 ```
-Give examples
+# postgres as database
+apt-get install postgresql postgresql-contrib
 ```
+
+Flask & Psycopg2
+```
+# flask as connection to postgres
+pip3 install flask flask_sqlalchemy flask_migrate flask_bootstrap flask_wtf
+
+# psycopg as python3 to postgres API
+pip3 install psycopg2
+```
+
+Beautifulsoup
+```
+# beautifulsoup4 for getting data
+pip3 install beautifulsoup4
+```
+
+### DEMO
+
+![](demo.gif)
 
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
-
+If you are using OSX system, run the config bash script:
 ```
-Give the example
+./mac_config.sh
 ```
 
-And repeat
-
+For downloading the data from [國賓影城](https://www.ambassador.com.tw/home/MovieList?Type=1), use the bash script:
 ```
-until finished
+# ./update_no_merge [mmdd-mmdd]
+# the website only have data throughout a week from now on
+# the first mmdd is today and the second is one week later
+./update_no_merge 0620-0627
 ```
-
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
-
-### And coding style tests
-
-Explain what these tests test and why
-
-```
-Give an example
-```
+It will create a folder named [mmdd-mmdd]csvs and all data inside are formatted for use.
 
 ## Deployment
 
-Add additional notes about how to deploy this on a live system
+For running our website, we need to make sure the database is working:
+```
+# run postgresql with user "postgres"
+$ sudo -iu postgres
 
-## Built With
+# build postgresql database with target user and database name
+postgres@linux:~$ psql -U postgres -d DBMS_movies
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+# check user and database
+DBMS_movies=# \c
+You are now connected to database "DBMS_movies" as user "postgres"
 
-## Contributing
+# create table from sql command
+DBMS_movies=# CREATE TABLE actors(
+...
+);
 
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
+# load data through sql command
+DBMS_movies=# COPY actors FROM '/path/to/our/project/0620-0627csvs/actor_data0620-0627.csv' DELIMITER ',' CSV;
 
-## Versioning
+# check our database connections
+$ pg_isready
+/var/run/postgresql:5433 -accepting connections
+$ pg_isready -h localhost -p 5433
+localhost:5433 - accepting connections
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
+# set environment variables to locate the database
+$ export POSTGRES_URL="127.0.0.1:5433"
+$ export POSTGRES_USER="postgres"
+$ export POSTGRES_PW="dbpw"
+$ export POSTGRES_DB="DB_movies"
+```
 
-## Authors
+After setting the database, run the python code to build the website:
+```
+$ python3 web/main.py
+ * Serving Flask app "main" (lazy loading)
+ * Environment: production
+   WARNING: This is a development server. Do not use it in a production deployment.
+   Use a production WSGI server instead.
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 596-310-633
+```
 
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
+Open the website with browser(https://127.0.0.1:5000/ in this case)
 
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
+Finally Done!
+
+## Authors 
+
+* **資科二 秦嘉佑** - *data crawl & format, scripting, README* - [absnormal](https://github.com/absnormal)
+**add yours profile and work part here**
+
+See also the list of [contributors](https://github.com/SabrinaKung/DBMS20202_final/contributors) who participated in this project.
 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
-
-## Acknowledgments
-
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
 

@@ -10,7 +10,7 @@ seat = []
 movies = []
 all_in_web = []
 
-date = "0625-0702"
+date = "0627-0704"
 
 with open(date + "csvs/type_data" + date + ".csv", encoding="utf-8") as types:
     data = types.readlines()

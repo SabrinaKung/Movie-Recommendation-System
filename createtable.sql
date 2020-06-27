@@ -48,11 +48,19 @@ CREATE TABLE customer(
 	PRIMARY KEY(c_list)
 );
 
-COPY acts FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0625-0702csvs/acts_data0625-0702.csv' DELIMITER ',' CSV;
-COPY actor FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0625-0702csvs/actor_data0625-0702.csv' DELIMITER ',' CSV;
-COPY movie FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0625-0702csvs/display_data0625-0702.csv' DELIMITER ',' CSV;
-COPY movie_type FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0625-0702csvs/type_data0625-0702.csv' DELIMITER ',' CSV;
-COPY seat FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0625-0702csvs/seat_data0625-0702.csv' DELIMITER ',' CSV;
+## 0627-0704 ##
+COPY acts FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0627-0704csvs/acts_data0627-0704.csv' DELIMITER ',' CSV;
+COPY actor FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0627-0704csvs/actor_data0627-0704.csv' DELIMITER ',' CSV;
+COPY movie FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0627-0704csvs/display_data0627-0704.csv' DELIMITER ',' CSV;
+COPY movie_type FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0627-0704csvs/type_data0627-0704.csv' DELIMITER ',' CSV;
+COPY seat FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0627-0704csvs/seat_data0627-0704.csv' DELIMITER ',' CSV;
+
+## 0620-0627 ##
+COPY acts FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0620-0627csvs/acts_data0620-0627.csv' DELIMITER ',' CSV;
+COPY actor FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0620-0627csvs/actor_data0620-0627.csv' DELIMITER ',' CSV;
+COPY movie FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0620-0627csvs/display_data0620-0627.csv' DELIMITER ',' CSV;
+COPY movie_type FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0620-0627csvs/type_data0620-0627.csv' DELIMITER ',' CSV;
+COPY seat FROM '/home/absnormal/大學/DBMS_2020/DBMS_Project1/0620-0627csvs/seat_data0620-0627.csv' DELIMITER ',' CSV;
 
 DROP TABLE actor CASCADE;
 DROP TABLE acts CASCADE;
