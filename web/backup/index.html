@@ -1,0 +1,146 @@
+{% extends "base.html" %}
+
+{% block title %}Homepage{% endblock %}
+
+{% block page_content %}
+<head>
+	<style type="text/css">
+body{
+	min-height:100vh;
+	margin:0;
+	padding-bottom: 58px;
+	position:relative;
+	font-family: Comic sans MS;
+}
+		/*
+		main{
+
+			margin: 0 auto;
+			padding: 30px 20px;
+		}
+		*/
+		a:hover{
+			text-decoration: none;
+		}
+		.about{
+			position: relative;
+			min-height:100%;
+			/*padding: 40px 0;*/
+			padding-bottom:100px;
+		}
+		.about .wrap{
+			display: flex;
+		}
+		.about .item{
+			margin: 0 10px;
+			width: 300px;
+			text-align: center;
+		}
+		.about .item h3{
+			color: #000;
+			transition: 0.5s;
+		}
+		.about .item p{
+			color: #000;
+			transition: 0.5s;
+		}
+		.about .item:hover h3{
+			color: #fa0;
+		}
+		.about .item:hover p{
+			color: #fa0;
+		}
+
+		.about .item img{
+			/* border-radius: 50%; */
+			width: 100px
+		}
+		input[type="image"]{
+			padding:15px 10px; 
+			width: 130px;
+			cursor:pointer;
+			/* -webkit-border-radius: 5px; */
+		}
+		.about >h2{
+			width: 100%;
+			font-size: 42px;
+			margin: auto;
+			text-align: center;
+			padding: 20px 0;
+		}
+		.about >p{
+			width: 660px;
+			margin: auto;
+			padding: 0 0 40px;
+			text-align: center;
+		}
+		/*.footer{
+		  text-align: center;
+		  background-color: #000;
+		  color: #888;
+		  padding: 20px; 
+		  box-sizing: border-box;
+		  position: absolute;
+		  bottom: 0;
+		  width: 100%;
+		  left: 0;
+		}*/
+	</style>
+</head>
+
+
+<!-- <input type="image" src=""  alt="send" name="Test" id="Test"
+	onclick="send();" /> -->
+	<body>
+		<main>
+			<div class="about">
+				<h2>Welcome</h2>
+				<p>How's your day?
+				</p>
+				<div class="wrap">
+
+					<div class="item">
+						<a href="{{url_for('index_excited')}}">
+							<input type="image" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Heart_Eyes_Emoji_2_large.png?v=1571606090"  alt="send" name="Test" id="Test" onclick="send();" /> 
+							<h3>title</h3>
+							<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque commodi repellat minima maiores autem, excepturi saepe ut laborum a odio.</p>
+					</div>
+						</a>
+						<div class="item">
+							<a href="{{url_for('index_boring')}}">
+								<input type="image" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Expressionless_Emoji_Icon_45516a90-b907-4345-888a-37597cd6e42e_large.png?v=1571606089"  alt="send" name="Test" id="Test" onclick="send();" /> 
+								<h3>title</h3>
+								<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque commodi repellat minima maiores autem, excepturi saepe ut laborum a odio.</p>
+						</div>
+							</a>
+							<div class="item">
+								<a href="{{url_for('index_angry')}}">
+									<input type="image" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Super_Angry_Face_Emoji_ios10_large.png?v=1571606092"  alt="send" name="Test" id="Test" onclick="send();" /> 
+									<h3>title</h3>
+									<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque commodi repellat minima maiores autem, excepturi saepe ut laborum a odio.</p>
+							</div>
+								</a>
+								<div class="item">
+									<a href="{{url_for('index_happy')}}">
+										<input type="image" src="https://cdn.shopify.com/s/files/1/1061/1924/products/Smiling_Emoji_Icon_-_Blushed_large.png?v=1571606114"  alt="send" name="Test" id="Test" onclick="send();" /> 
+										<h3>title</h3>
+										<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque commodi repellat minima maiores autem, excepturi saepe ut laborum a odio.</p>
+								</div>
+									</a>
+
+									<div class="item">
+										<a href="{{url_for('index_sad')}}">
+											<input type="image" src="https://cdn.shopify.com/s/files/1/1061/1924/products/5_large.png?v=1571606116"  alt="send" name="Test" id="Test" onclick="send();" /> 
+											<h3>title</h3>
+											<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Atque commodi repellat minima maiores autem, excepturi saepe ut laborum a odio.</p>      
+									</div>
+										</a>
+				</div>
+			</div>
+		</main>
+		<footer class="footer">
+			&copy; copyright by Unknown
+		</footer>
+	</body>
+
+	{% endblock %}
