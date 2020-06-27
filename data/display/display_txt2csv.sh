@@ -45,6 +45,7 @@ cp $TXT $TMP
 `sed -i 's/title = /\'$'\n/g' $TMP`
 `sed -i 's/\s//g' $TMP`
 `sed -i '/---/ d' $TMP`
+`sed -i 's/,$//' $TMP`
 
 # add location after theater(fixed theater-location pair)
 `sed -i 's/國賓大戲院/&,台北市成都路88號/g' $TMP`
@@ -63,6 +64,5 @@ cp $TXT $TMP
 
 # generate csv file and add attribute name to first line
 `touch $CSV`
-`echo "title,date,theater,location,time" > $CSV`
 `sort $TMP | uniq >> $CSV`
 rm $TMP

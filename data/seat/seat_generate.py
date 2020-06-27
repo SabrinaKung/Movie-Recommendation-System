@@ -10,9 +10,9 @@ seat = []
 movies = []
 all_in_web = []
 
-date = "0620-0627"
+date = "0625-0702"
 
-with open("../type/type_data" + date + ".csv", encoding="utf-8") as types:
+with open(date + "csvs/type_data" + date + ".csv", encoding="utf-8") as types:
     data = types.readlines()
     # remove first line
     data = data[1:]
@@ -23,7 +23,7 @@ with open("../type/type_data" + date + ".csv", encoding="utf-8") as types:
         all_in_web.append(movie)
     types.close()
 
-with open("../display/display_data" + date + ".csv", encoding="utf-8") as display:
+with open(date + "csvs/display_data" + date + ".csv", encoding="utf-8") as display:
     data = display.readlines()
     # remove first line
     data = data[1:]
@@ -32,9 +32,9 @@ with open("../display/display_data" + date + ".csv", encoding="utf-8") as displa
         features = line.split(",")
         movie = features[0]
         theater = features[2]
-        date = features[1]
+        dated = features[1]
         time = features[4]
-        TT = [movie, theater, date, time]
+        TT = [movie, theater, dated, time]
         if theater not in theaters:
             theaters.append(theater)
         if movie not in movies:
@@ -44,7 +44,6 @@ with open("../display/display_data" + date + ".csv", encoding="utf-8") as displa
     display.close()
 
 
-print("movie,theater,date,time,column,row,booked")
 for S in seat:
     for C in column:
         for R in row:

@@ -10,7 +10,6 @@ sys.stdout = codecs.getwriter("utf-8")(sys.stdout.detach())
 f = open(os.getcwd()+"/data/actor/names.txt", encoding="utf-8")
 #f = open("names.txt", encoding="utf-8")
 
-print("name,SSN,sex")
 for line in f:
     hashid = int(hashlib.md5(line.encode('utf-8')).hexdigest(), 16)
     sex = hashid % 2

@@ -47,8 +47,6 @@ def gethref(dom):
     soup = BeautifulSoup(dom, features="html.parser")
     moviehref = soup.find_all("h6")
     for H in moviehref:
-        #print(f"H = {H}")
-        #print(H.find('a').get('href'))
         nexturl = H.find('a').get('href')
         homeurl = "https://www.ambassador.com.tw"
         url = homeurl+nexturl
@@ -66,11 +64,10 @@ def gethref(dom):
 
 
 def getmovie(SS, theater, day):
-    #print(f"title = {soup.find('title').text}")
-    #theater = soup.find_all('div', class_='theater-box')
     for T in theater:
-        #print(f"theater = {T.find('a').text}")
-        for time, ting in zip(T.find_all('h6'), T.find_all('span', "float-left info")):
+        times = T.find_all('h6')
+        tings = T.find_all('span', "float-left info")
+        for time, ting in zip(times, tings):
             print(f"title = {SS.find('title').text}")
             print(f"date = {day}")
             print(f"theater = {T.find('a').text}")
