@@ -1,5 +1,10 @@
-}
 <header>
+	<script type="text/javascript">
+function display_alert()
+  {
+  alert("Booking Successful")
+  }
+</script>
 <style type="text/css">
 * {
   padding: 0;
@@ -374,38 +379,6 @@ td {
 
 </style>
 </header>
-<script language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js">
-$(document).ready(function(){
- $('.pop-up').on('click', function(){
- 	$('#overlay').fadeIn(300); 
- 	$('.calendar').fadeIn(300); 
- 	let clickedbutton = $("input",$(this).parent()).attr('id');
- 	$('.dates').data('type',clickedbutton);
- });
- 
- $('table').on('click', function(event){
-   let that=$(event.target);
-    if(that.is('td') && !that.hasClass('notCurMonth') && !that.hasClass('holiday') && !that.hasClass('curDay')){
-    	$('td.curDay').toggleClass('curDay');
-    	that.toggleClass('curDay');
-    }
-}); 
-
-$('#add_event').on('click', function(){
-	let value= $('td.curDay').html();
-    $('#overlay').fadeOut(300);
- 	$('.calendar').fadeOut(300);
- 	let id=($('.dates').data()).type;
- 	$('#' + id).val(value+" May, 2014");
-}); 
-
-$('#search').on('click', function(e){
-	$('.booking').addClass('is-sent');
-	e.preventDefault();
-});
-});	
-</script>
-
 
 <div id="overlay"></div>
 <div class="container calendar">
@@ -473,7 +446,7 @@ $('#search').on('click', function(e){
   <button class="button-big" id="add_event">Add event</button>
 </div>
 
-<form method = "Post" action="/superbooking" class="container booking" name="booking">
+<form method = "Post" action="/superbooking/{{m_n}}/{{m_t}}/{{day}}/{{time}}" class="container booking" name="booking">
   <div class="header">
     <div>
       <h2>Movie Theater</h2>
@@ -483,7 +456,7 @@ $('#search').on('click', function(e){
   </div>
 
   <div class="dates" data-type="none">
-    <label for="checkin">Nmae</label>
+    <label for="checkin">Name</label>
     <div class="input-text">
       <input type="text" value="" id="checkin" name = 'username' >
     </div>
@@ -500,7 +473,7 @@ $('#search').on('click', function(e){
 
   <ul class="persons">
     <li>
-      <label>Users</label>
+      <label>Adults</label>
       <div class="input-text">
         <select name="adults">
           <option value="1">1</option>
@@ -513,7 +486,6 @@ $('#search').on('click', function(e){
       </div>
     </li>
 
-	<!--
 	<li>
       <label>Children</label>
       <div class="input-text">
@@ -527,7 +499,7 @@ $('#search').on('click', function(e){
         <div class="icon"></div>
       </div>
     </li>
-	-->
+	
   </ul>
 
   <button class="button-big" id="search">

@@ -54,19 +54,22 @@ For running our website, we need to make sure the database is working:
 $ sudo -iu postgres
 
 # build postgresql database with target user and database name
-postgres@linux:~$ psql -U postgres -d DBMS_movies
+postgres@linux:~$ psql
+postgres=# CREATE database DBMS_movie;
+postgres=# \q
+postgres@linux:~$ psql -U postgres -d DBMS_movie
 
 # check user and database
-DBMS_movies=# \c
-You are now connected to database "DBMS_movies" as user "postgres"
+DBMS_movie=# \c
+You are now connected to database "DBMS_movie" as user "postgres"
 
-# create table from sql command
-DBMS_movies=# CREATE TABLE actors(
+# create table and load data from sql command at 'path/to/our/project/createtable.sql'
+DBMS_movie=# CREATE TABLE actors(
 ...
 );
-
-# load data through sql command
+...
 DBMS_movies=# COPY actors FROM '/path/to/our/project/0620-0627csvs/actor_data0620-0627.csv' DELIMITER ',' CSV;
+...
 
 # check our database connections
 $ pg_isready
