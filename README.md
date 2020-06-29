@@ -109,7 +109,7 @@ Finally Done!
 
 * **資科二 秦嘉佑** - *data crawl & format, scripting, README* - [absnormal](https://github.com/absnormal)  
   **資科二 龔琳甯** - *backend & frontend*  
-  **資科二 彭嵩寧** - *backend & frontend*  
+  **資科四 彭嵩寧** - *backend & frontend*  
   **資科二 邱品硯** - *backend & frontend*  
   **資科二 黃昱涵** - *frontend & pdf*  
 **add yours profile and work part here**
