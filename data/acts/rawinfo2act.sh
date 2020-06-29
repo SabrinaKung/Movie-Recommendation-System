@@ -59,6 +59,5 @@ cp $INF $TMP
 
 # generate csv file and add attribute name to first line
 `touch $ACT`
-`echo "movie,actor" > $ACT`
 `sort $TMP | uniq >> $ACT`
 rm $TMP
