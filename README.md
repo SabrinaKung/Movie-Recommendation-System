@@ -86,6 +86,9 @@ $ export POSTGRES_DB="DB_movies"
 
 After setting the database, run the python code to build the website:
 ```
+if mac:
+python main.py password_for_postgresql
+if ubuntu:
 $ python3 web/main.py
  * Serving Flask app "main" (lazy loading)
  * Environment: production
@@ -105,6 +108,10 @@ Finally Done!
 ## Authors 
 
 * **資科二 秦嘉佑** - *data crawl & format, scripting, README* - [absnormal](https://github.com/absnormal)
+  **資科二 龔琳甯** - *backend & frontend*
+  **資科二 彭嵩寧** - *backend & frontend*
+  **資科二 邱品硯** - *backend & frontend*
+  **資科二 黃昱涵** - *frontend & pdf*
 **add yours profile and work part here**
 
 See also the list of [contributors](https://github.com/SabrinaKung/DBMS20202_final/contributors) who participated in this project.
