@@ -1,6 +1,5 @@
-# 電影院售票系統
-
-這是一個利用國賓影城的電影資料所建立的電影院售票系統。售票網頁會依照用戶選擇的心情來推薦電影類型，並顯示當期電影供用戶選擇，用戶可以自由選擇觀看電影、戲院與日期時間下訂電影。除此之外，用戶還可以在訂票後還輸入用戶資訊，進行退票動作。
+# Movie Ticketing System
+This is a movie ticketing system built using movie data from Ambassador Theatres. The ticketing website recommends movie genres based on the user's selected mood and displays currently available movies for selection. Users can freely choose a movie, theater, and date/time to book their tickets. Additionally, after booking, users can enter their information to request a ticket refund.
 
 ### Prerequisites
 
